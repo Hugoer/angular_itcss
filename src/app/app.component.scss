@@ -1,0 +1,9 @@
+@import '../scss/main.scss';
+.o-layout {
+	@include mq($from: tablet) {
+		a {
+			color: red;
+		}
+	}
+}
+
