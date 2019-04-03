@@ -7,3 +7,10 @@
 	}
 }
 
+.o-layout__item {
+	@if (inuit-config(debug) == true) {
+		border: solid 1px red;
+	} @else {
+		border: solid 1px green;
+	}
+}

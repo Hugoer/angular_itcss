@@ -2,6 +2,6 @@
 // @import '~inuitcss/settings/settings.core';
 // @import '~inuitcss/settings/example.settings.global';
 
-// @import '../../../node_modules/inuitcss/settings/_example.settings.config.scss';
+@import './settings';
+// inuitcss settings core
 @import '../../../node_modules/inuitcss/settings/_settings.core.scss';
-// @import '../../../node_modules/inuitcss/settings/_example.settings.global.scss';
