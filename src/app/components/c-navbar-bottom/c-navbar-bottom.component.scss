@@ -1,0 +1,156 @@
+/*
+ * Made by Erik Terwan
+ * 24th of November 2015
+ * MIT License
+ *
+ *
+ * If you are thinking of using this in
+ * production code, beware of the browser
+ * prefixes.
+ */
+
+body {
+	font-family: 'Avenir Next', 'Avenir', sans-serif;
+
+	margin: 0;
+	padding: 0;
+
+	color: #CDCDCD;
+/* make it look decent enough */
+	background: #232323;
+}
+
+a {
+	transition: color .3s ease;
+	text-decoration: none;
+
+	color: #232323;
+}
+
+a:hover {
+	color: tomato;
+}
+
+#menuToggle {
+	position: relative;
+	z-index: 1;
+	top: 50px;
+	left: 50px;
+
+	display: block;
+
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+#menuToggle input {
+	position: absolute;
+	z-index: 2; /* and place it over the hamburger */
+	top: -7px;
+	left: -5px;
+
+	display: block;
+
+	width: 40px;
+	height: 32px;
+
+	cursor: pointer;
+
+	opacity: 0; /* hide this */
+
+	-webkit-touch-callout: none;
+}
+
+/*
+  * Just a quick hamburger
+  */
+#menuToggle span {
+	position: relative;
+	z-index: 1;
+
+	display: block;
+
+	width: 33px;
+	height: 4px;
+	margin-bottom: 5px;
+
+	transition: transform .5s cubic-bezier(.77,.2,.05,1.0),
+	background .5s cubic-bezier(.77,.2,.05,1.0),
+	opacity .55s ease;
+	transform-origin: 4px 0;
+
+	border-radius: 3px;
+	background: #CDCDCD;
+}
+
+#menuToggle span:first-child {
+	transform-origin: 0 0;
+}
+
+#menuToggle span:nth-last-child(2) {
+	transform-origin: 0 100%;
+}
+
+/*
+  * Transform all the slices of hamburger
+  * into a crossmark.
+  */
+#menuToggle input:checked ~ span {
+	transform: rotate(45deg) translate(-2px, -1px);
+
+	opacity: 1;
+	background: #232323;
+}
+
+/*
+  * But let's hide the middle one.
+  */
+#menuToggle input:checked ~ span:nth-last-child(3) {
+	transform: rotate(0deg) scale(.2, .2);
+
+	opacity: 0;
+}
+
+/*
+  * Ohyeah and the last one should go the other direction
+  */
+#menuToggle input:checked ~ span:nth-last-child(2) {
+	transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+  * Make this absolute positioned
+  * at the top left of the screen
+  */
+#menu {
+	position: absolute;
+
+	width: 300px;
+	margin: -100px 0 0 -50px;
+	padding: 50px;
+	padding-top: 125px;
+
+	list-style-type: none;
+
+	transition: transform .5s cubic-bezier(.77,.2,.05,1.0);
+	transform: translate(-100%, 0);
+/* to stop flickering of text in safari */
+	transform-origin: 0 0;
+
+	background: #EDEDED;
+
+	-webkit-font-smoothing: antialiased;
+}
+
+#menu li {
+	font-size: 22px;
+
+	padding: 10px 0;
+}
+
+/*
+  * And let's slide it in from the left
+  */
+#menuToggle input:checked ~ ul {
+	transform: none;
+}
